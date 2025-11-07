@@ -2,7 +2,7 @@
 ### Luis Martín Pérez
 
 - Dataset usado para la detección de matrículas: [License Plate Dataset](https://www.kaggle.com/datasets/ronakgohil/license-plate-dataset)
-- Video generado a partir de las detecciones del video de prueba: [DetectionsVideo](#)
+- Video generado a partir de las detecciones del video de prueba: [DetectionsVideo](https://youtu.be/cJ1EyXnayDE)
 
 # Descripción del proyecto.
 ## Parte 1: YOLO para detección de objetos y matrículas.
@@ -36,6 +36,8 @@ Dado el video de ejemplo proporcionado, se siguió el siguiente procedimiento:
 - Se trasladan las coordenadas y tamaño del bounding box a la imagen original.
 - Se pasa la imagen de la matrícula detectada al modelo OCR tesseract para leer su texto.
 - Si los flags `WRITE_VIDEO` y `WRITE_CSV` están habilitadas, se graba el vídeo con las anotaciones y también se escriben los datos en el fichero `detections.csv`.
+
+Se puede ver el resultado en el siguiente video: https://youtu.be/cJ1EyXnayDE
 
 ## Parte 2: Comparación de modelos de OCR para detección de texto de matrículas.
 
