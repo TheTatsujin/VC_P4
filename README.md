@@ -14,6 +14,10 @@ exclusivamente, sin embargo, no se puedo encontrar uno con calidad decente.
 Los resultados del entrenamiento junto a los pesos del modelo se encuentra en la carpeta `license-plate-model/`.
 Los hiperparámetros se encuentran en `license-plate-model/args.yaml`. A continuación, se muestran las siguientes gráficas:
 
+#### Gráficas de entrenamiento.
+
+![lp-model-train-graphs](license-plate-model/results.png)
+
 #### Matriz de confusión.
 
 ![lp-model-confusion-matrix](license-plate-model/confusion_matrix.png)
@@ -35,4 +39,20 @@ Dado el video de ejemplo proporcionado, se siguió el siguiente procedimiento:
 
 ## Parte 2: Comparación de modelos de OCR para detección de texto de matrículas.
 
-// TODO
+Para esta parte, se hace lo siguiente:
+
+1. Se eligen 100 fotos aleatorias del conjunto del dataset de entrenamiento y se mueven a `ocr-test/images`.
+2. Se etiquetan las imágenes manualmente en `ocr-test/labels`
+3. Se carga el modelo entrenado de detección de matrículas, se le pasan todas las imágenes etiquetadas para obtener su bounding box.
+4. Se usa el bounding box para recortar solo la matrícula y se guarda en `ocr-test/crops`
+5. Se prueban los modelos con las imágenes de matrículas y se guardan los resultados en `ocr-test/results.csv`
+
+Los modelos elegidos para esta comparación son easyOCR y tesseract. Los resultados obtenidos son bastante pobres, es decir,
+el ganador fue easyOCR con un 9% de acierto. Esto se debe a que probablemente esto modelos han sido entrenados con textos relacionados
+con lenguaje humano y no códigos, por ejemplo, libros, artículos, carteles, etc...
+
+También es cierto que bastantes imágenes del dataset so difíciles de leer, incluso para un humano.
+
+##### ¿Qué pone aquí?
+
+![Very hard to read license plate number](ocr-test/crops/video3_1140.jpg)
